@@ -22,15 +22,18 @@ function App() {
   
   
 
-  const toggleMode = () => {
+  const toggleMode = (cls) => {
     if (mode === "dark") {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light Mode Enabled","success")
-      document.title = "TextUtils | Light Mode";
-      setTimeout(() => {
-        document.title = "TextUtils | Home"
-      }, 2000);
+
+
+
+      // document.title = "TextUtils | Light Mode";
+      // setTimeout(() => {
+      //   document.title = "TextUtils | Home"
+      // }, 2000);
 
     } else {
       setMode("dark");

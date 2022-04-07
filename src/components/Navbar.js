@@ -35,12 +35,11 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          {/* <form className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-primary" type="submit">Search</button>
-        </form> */}
-        </div>
-        <div
+          <div className="d-flex">
+            <button disabled={props.mode=='dark'?true:false} className="btn-dark rounded mx-2"  onClick={()=>props.toggleMode('dark')} style={{backgroundColor : 'primary',height:'30px',width:'30px', border:'.5px solid #212529'}}></button>
+            <button disabled={props.mode=='light'?true:false} className="btn-light rounded mx-2"  onClick={()=>props.toggleMode('light')} style={{backgroundColor : 'primary',height:'30px',width:'30px',border:'.5px solid white'}}></button>
+          </div>
+        {/* <div
           className={`form-check form-switch text-${
             props.mode === "light" ? "dark" : "light"
           }`}
@@ -55,7 +54,9 @@ export default function Navbar(props) {
           <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
             Enable {props.mode === "light" ? "dark" : "light"} Mode
           </label>
+        </div> */}
         </div>
+        
       </div>
     </nav>
   );
