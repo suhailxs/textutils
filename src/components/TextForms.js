@@ -3,14 +3,14 @@ import React, { useState } from "react";
 export default function TextForms(props) {
   const [text, setText] = useState("");
 
-  let word = text.replace(" ", "").split(" ").length;
+  // let word = text.replace(" ", "").split(" ").length;
 
-  if (text === "") {
-    word = "0";
-  }
+  // if (text === "") {
+  //   word = "0";
+  // }
 
   const handleUpClick = () => {
-    console.log("uppercase was clicked");
+    // console.log("uppercase was clicked");
     let upperCase = text.toUpperCase();
     setText(upperCase);
     props.showAlert("UpperCase", "success")
@@ -18,7 +18,7 @@ export default function TextForms(props) {
 
   const handleOnChange = (event) => {
     setText(event.target.value);
-    console.log("Onchange");
+    // console.log("Onchange");
   };
 
   const handleCopy = () =>{
@@ -49,10 +49,10 @@ export default function TextForms(props) {
             rows="8"
           ></textarea>
         </div>
-        <button onClick={handleUpClick} className="btn btn-primary">
+        <button onClick={handleUpClick} disabled={text.length===0 ? true : false} className="btn btn-primary mx-1 my-1">
           Convert to Uppercase
         </button>
-        <button onClick={handleCopy} className="m-2 btn btn-primary">
+        <button onClick={handleCopy} disabled={text.length===0 ? true : false} className="m-2 btn btn-primary mx-1 my-1">
           Copy to Clipboard
         </button>
       </div>
@@ -62,7 +62,7 @@ export default function TextForms(props) {
       >
         <h1>Your text Summary</h1>
         <p>
-          {word} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
       </div>
       <div
