@@ -3,8 +3,8 @@ import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForms";
-// import About from "./components/About";
-// import { BrowserRouter as Router, Route, Routes ,Link} from 'react-router-dom'
+import About from "./components/About";
+import { BrowserRouter as Router, Route, Routes ,Link} from 'react-router-dom'
 
 function App() {
   const [mode, setMode] = useState("light"); // wheather dark mopde is enable or not
@@ -57,23 +57,22 @@ function App() {
   return (
     <>
       {/* <Navbar title= "suhail"/> */}
-      {/* <Router> */}
+      <Router>
       <Navbar mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-      {/* <Routes> */}
-          {/* <Route exact path="/" element={<TextForm mode={mode} showAlert={showAlert} heading="Enter Your Text to Analyze" />}/> */}
-          <TextForm mode={mode} showAlert={showAlert} heading="Enter Your Text to Analyze" />
-          {/* <Route exact path="/about" element={<About/>}/> */}
+      <Routes>
+          <Route exact path="/" element={<TextForm mode={mode} showAlert={showAlert} heading="Enter Your Text to Analyze" />}/>
+          <Route exact path="/about" element={<About/>}/>
            
           
           {/* <Route path="/">
           <TextForm mode={mode} showAlert={showAlert} heading="Enter Your Text to Analyze" />
           </Route> */}
-      {/* </Routes> */}
+      </Routes>
        
       </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
